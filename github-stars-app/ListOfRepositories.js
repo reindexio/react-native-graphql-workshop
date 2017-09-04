@@ -4,16 +4,15 @@ import Repository from './Repository';
 
 export default class ListOfRepositories extends React.Component {
   renderItem({ item }) {
-    return <Repository />;
+    return <Repository repository={item} />;
   }
 
   render() {
-    const items = ['fake', 'fake-2'];
     return (
       <FlatList
-        data={items}
+        data={this.props.repositories.nodes}
         renderItem={this.renderItem}
-        keyExtractor={(item, index) => index}
+        keyExtractor={item => item.id}
       />
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, Button } from 'react-native';
 import ListOfRepositories from './ListOfRepositories';
+import LoadingScreen from './LoadingScreen';
 
 export default class SearchRepositories extends React.Component {
   static navigationOptions = {
