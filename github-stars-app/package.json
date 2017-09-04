@@ -1,0 +1,37 @@
+{
+  "name": "github-stars-app",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.5.0",
+    "eslint-config-react-app": "^2.0.0",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0",
+    "jest-expo": "~20.0.0",
+    "prettier": "^1.5.3",
+    "react-native-scripts": "1.2.1",
+    "react-test-renderer": "16.0.0-alpha.12"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "node node_modules/jest/bin/jest.js --watch"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "apollo-client": "^1.9.1",
+    "expo": "^20.0.0",
+    "react": "16.0.0-alpha.12",
+    "react-apollo": "^1.4.15",
+    "react-native": "^0.47.0",
+    "react-navigation": "^1.0.0-beta.11"
+  }
+}
