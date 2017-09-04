@@ -18,6 +18,9 @@ class Profile extends React.Component {
             <Text style={styles.text}>
               Username: {this.props.data.viewer.login}
             </Text>
+            <Text style={styles.text}>
+              Name: {this.props.data.viewer.name}
+            </Text>
           </View>
           <View style={styles.buttonBlock}>
             <Button
@@ -66,6 +69,7 @@ const ProfileQuery = gql`
   query {
     viewer {
       login
+      name
     }
   }
 `;
