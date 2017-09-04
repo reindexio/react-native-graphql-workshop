@@ -1,13 +1,40 @@
 import React from 'react';
+import { compose, graphql, gql } from 'react-apollo';
 import { Text, View, StyleSheet, Button } from 'react-native';
 
-export default class Repository extends React.Component {
+class Repository extends React.Component {
   renderStarToggle() {
     if (this.props.repository.viewerHasStarred) {
-      return <Button title="Unstar" />;
+      return (
+        <Button
+          title="Unstar"
+          onPress={() => this.handleToggleStar('removeStar')}
+        />
+      );
     } else {
-      return <Button title="Star" />;
+      return (
+        <Button title="Star" onPress={() => this.handleToggleStar('addStar')} />
+      );
     }
+  }
+
+  async handleToggleStar(mutation) {
+    await this.props[mutation]({
+      variables: {
+        id: this.props.repository.id,
+      },
+      optimisticResponse: {
+        [mutation]: {
+          __typename: 'AddStarPayload',
+          starrable: {
+            __typename: 'Repository',
+            id: this.props.repository.id,
+            viewerHasStarred: !this.props.repository.viewerHasStarred,
+            nameWithOwner: this.props.repository.nameWithOwner,
+          },
+        },
+      },
+    });
   }
 
   render() {
@@ -45,3 +72,36 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+const StarQuery = gql`
+  mutation StarRepo($id: ID!) {
+    addStar(input: { starrableId: $id }) {
+      starrable {
+        id
+        viewerHasStarred
+        ... on Repository {
+          nameWithOwner
+        }
+      }
+    }
+  }
+`;
+
+const UnStarQuery = gql`
+  mutation UnstarRepo($id: ID!) {
+    removeStar(input: { starrableId: $id }) {
+      starrable {
+        id
+        viewerHasStarred
+        ... on Repository {
+          nameWithOwner
+        }
+      }
+    }
+  }
+`;
+
+export default compose(
+  graphql(StarQuery, { name: 'addStar' }),
+  graphql(UnStarQuery, { name: 'removeStar' }),
+)(Repository);
