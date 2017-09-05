@@ -51,7 +51,7 @@ and attaches that to our React component tree with ApolloProvider. If you’ve
 used Redux, this should be familiar, since it’s similar to how the Redux
 provider works.
 
-We use [react-navigation](TODO) as a navigation solution and it's already set
+We use [react-navigation](https://reactnavigation.org) as a navigation solution and it's already set
 up. In addition, 3 screens are set up in the navigation - `Profile`,
 `StarredRepositories` and `SearchRepositories`. However, `StarredRepositories`
 and `SearchRepositories` only have stub components, with no logic or props
