@@ -40,8 +40,10 @@ npm start
 ```
 
 You will see the QR code in your terminal. Open Expo app and scan the QR code.
-The app should now be running on your phone. You should see text "You name is:
+The app should now be running on your phone. You should see a text "Username:
 <YOUR GITHUB USERNAME>"
+
+**Note**: Your phone needs to be in the same wi-fi network as your computer.
 
 ## Code structure
 
