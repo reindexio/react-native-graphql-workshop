@@ -58,7 +58,7 @@ method that calls `fetchMore`.
 ```js
 loadMoreEntries = () => {
   // Don't repeat it when loading
-  if (!this.props.loading) {
+  if (!this.props.data.loading) {
     const viewer = this.props.data.viewer;
     // if there is no more data, do nothing
     if (!viewer.starredRepositories.pageInfo.hasNextPage) {
