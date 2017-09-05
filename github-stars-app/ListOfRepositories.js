@@ -12,7 +12,6 @@ export default class ListOfRepositories extends React.Component {
       <FlatList
         data={this.props.repositories.nodes}
         renderItem={this.renderItem}
-        keyExtractor={item => item.id}
         onEndReached={() => this.props.onLoadMore()}
         refreshing={this.props.refreshing}
         onRefresh={() => this.props.onRefresh()}

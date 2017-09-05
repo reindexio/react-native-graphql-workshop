@@ -111,7 +111,6 @@ render() {
     <FlatList
       data={this.props.repositories.nodes}
       renderItem={this.renderItem}
-      keyExtractor={item => item.id}
       onEndReached={() => this.props.onLoadMore()}
     />
   );
