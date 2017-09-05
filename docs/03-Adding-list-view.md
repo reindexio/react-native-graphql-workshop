@@ -6,7 +6,7 @@ continue from previous step or checkout `step-2` branch.
 ## Designing the query
 
 We will start by designing the query that we need to get all the data in the
-[GraphQL Explorer](TODO). We need to get the list of starred repositories of
+[GraphQL Explorer](https://developer.github.com/v4/explorer/). We need to get the list of starred repositories of
 the current user and the name for them so we could display them in the list.
 
 We will start with `viewer` to get info about current user.
